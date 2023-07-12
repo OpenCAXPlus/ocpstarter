@@ -1,0 +1,29 @@
+name: starter_name
+uid: starter_id
+type: starter
+licenses: ["MIT"]
+default:
+  configuration: default
+  scripts: ["prepare","publish"]
+  dependencies: ["dep"]
+versions:
+  - id: "1.0.0"
+    default: "build"
+    scripts: ["prepare","publish"]
+    configurations: ["default","build"]
+  - "id": "2.0.0"
+scripts:
+  - id: "prepare"
+    run: scripts/prepare
+    arguments: ["@version","@uid"]
+dependencies:
+  - id: dep
+    uid: spdlog
+    type: external
+    default:
+      version: "1.0.0"
+      configuration: "default"
+configurations:
+  - id: default
+    run: configurations/default
+    arguments: [dep@version@config]

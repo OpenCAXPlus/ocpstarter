@@ -1,0 +1,8 @@
+{
+    "yaml.schemas": {
+        "/home/xcheng/code/OpenCAXPlus/COP/ocp.schema.json": [
+            "ocp.yml",
+            "file:///home/xcheng/code/OpenCAXPlus/ocpstarter/ocp.yml"
+        ],
+    }
+}
