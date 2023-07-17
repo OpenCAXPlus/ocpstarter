@@ -2,23 +2,26 @@ cmake_minimum_required(VERSION 3.20)
 
 project(BasicConsoleStarter)
 
-set(OCP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../cmake")
-find_package(OCP)
+# Setting some variables
+set(OCP_DIR $ENV{HOME}"/ocp/sdk/latest/cmake")
+option(ENABLE_TEST "Enable testing" ON)
+set(StarterName Starter)
+set(LifeCycleName base_console)
 
-add_library(CAEStatic STATIC)
-target_sources(CAEStatic PUBLIC app.cpp define.cpp)
-# target_include_directories(CAEStatic PUBLIC ${OCP_ROOT}/toolkit
-# ${OCP_ROOT}/framework/lifecycle/BasicConsole)
 
-ocp_embed_user_program(
-  LIFECYCLE
-  "basic"
-  TOOLS
-  "spdlog;faspsolver"
-  NAME
-  "basic"
-  TARGET
-  CAEStatic
-  ROOT
-  ${OCP_ROOT}
-  USE_CXX)
+
+
+set(StarterLibraryName ${StarterName}Lib)
+find_package(OCP) # this provides the variaable OCP_ROOT
+
+if(ENABLE_TEST)
+  include(CTest)
+endif()
+
+add_library(${StarterLibraryName} STATIC)
+target_sources(${StarterLibraryName} PUBLIC app.cpp define.cpp)
+target_link_libraries(${StarterLibraryName} PUBLIC OCP::Interface )
+
+
+add_subdirectory(${OCP_ROOT}/framework/lifecycle/${LifeCycleName}
+                    ${PROJECT_BINARY_DIR}/${StarterName})
