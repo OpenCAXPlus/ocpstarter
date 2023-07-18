@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION 3.20)
 project(OCPStarterTemplate)
 
 # Setting some variables
-# set(OCP_DIR $ENV{HOME}/ocp/sdk/latest/lib/cmake/ocp)
-set(OCP_DIR "../out/install/linux-gnu-Debug/lib/cmake/ocp")
+set(OCP_DIR $ENV{HOME}/ocp/sdk/latest/lib/cmake/ocp)
+# set(OCP_DIR "../out/install/linux-gnu-Debug/lib/cmake/ocp")
 option(ENABLE_TEST "Enable testing" ON)
 set(StarterName Starter)
 set(LifeCycleName base_console)
