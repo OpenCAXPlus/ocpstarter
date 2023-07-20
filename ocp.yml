@@ -4,6 +4,7 @@ type: starter
 licenses: ["MIT"]
 default:
   configuration: default
+  version: "1.0.0"
   scripts: ["prepare","publish"]
   dependencies: ["dep"]
 versions:
@@ -21,9 +22,10 @@ dependencies:
     uid: spdlog
     type: external
     default:
-      version: "1.0.0"
+      version: "1.11.0"
       configuration: "default"
 configurations:
   - id: default
     run: configurations/default
-    arguments: [dep@version@config]
+    arguments: [dep]
+    dependencies: ["dep"]

@@ -21,3 +21,9 @@ which create the executable target and use the library target you just created.
 ## Folder structure explained
 
 ## The ocp.yml file
+
+
+```
+cmake --preset="linux-gnu-Debug" -S "."
+cmake --build --preset="linux-gnu-Debug"
+```

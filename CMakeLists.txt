@@ -1,13 +1,15 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(OCPStarterTemplate)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/source)
 
 # Setting some variables
 set(OCP_DIR $ENV{HOME}/ocp/sdk/latest/lib/cmake/ocp)
 # set(OCP_DIR "../out/install/linux-gnu-Debug/lib/cmake/ocp")
 option(ENABLE_TEST "Enable testing" ON)
-set(StarterName Starter)
-set(LifeCycleName base_console)
+
+include(DefineUser)
 
 set(StarterLibraryName ${StarterName}Lib)
 find_package(OCP) # this provides the variaable OCP_ROOT
@@ -19,6 +21,7 @@ if(ENABLE_TEST)
 endif()
 
 add_subdirectory(source)
+
 
 add_subdirectory(${OCP_LIFECYCLE}/${LifeCycleName}
   ${PROJECT_BINARY_DIR}/${StarterName})
