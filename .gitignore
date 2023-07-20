@@ -10,3 +10,5 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 out/
+# you can also consider remove the next line and let git track the cmake folder
+cmake/ 

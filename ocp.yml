@@ -3,6 +3,7 @@ uid: starter_id
 type: starter
 licenses: ["MIT"]
 default:
+  preset: "linux-gnu-Debug"
   configuration: default
   version: "1.0.0"
   scripts: ["prepare","publish"]
