@@ -1,6 +1,7 @@
 name: starter_name
 uid: starter_id
 type: starter
+builder: cmake
 licenses: ["MIT"]
 default:
   preset: "linux-gnu-Debug"
